@@ -1,4 +1,5 @@
 # Simple React Redux App, Reminder App
 This is a very simple react-redux application.
 
-![](playGround/ReminderApp.jpg)
+❮img src="playGround/ReminderApp.jpg" width="10%" ❯
+
