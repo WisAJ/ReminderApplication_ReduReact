@@ -1,3 +1,52 @@
 1-Action Types , 
 2-Action Creators
 3-Reducers
+
+
+I had some issues displying the img , tried this on the webpack.config.js;
+it seems that fileloader has bad actions when used.
+
+{
+      test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+      loader: 'url-loader?limit=100000' }]
+  },
+
+  and 
+
+  {
+      test: /\.(gif|svg|jpg|png)$/,
+      loader: "file-loader",
+    }
+
+    and 
+
+    test: /\.(gif|png|jpe?g|svg)$/i,
+      use: [
+        'file-loader',
+        {
+          loader: 'image-webpack-loader',
+          options: {
+            bypassOnDebug: true, // webpack@1.x
+            disable: true, // webpack@2.x and newer
+          },
+        },
+      ],
+
+    but none worked. However, the following one seems to work but what is the limit units?
+    and how it affects the size of the picture being displayed.
+
+    {
+      test: /\.(gif|png|jpe?g|svg)$/i,
+      use: [{
+        loader:"url-loader",
+        options: {
+            limit:90000000
+          }
+        }]
+    }
+
+    and 
+    }, {
+      test: /\.(gif|png|jpe?g|svg)$/i,
+      loader: 'url-loader?limit=10000000'
+    }, {
